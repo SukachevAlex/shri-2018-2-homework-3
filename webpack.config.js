@@ -6,7 +6,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: { main: "./src/index.js" },
+    entry: {
+        main: "./src/index.js",
+        video: "./src/monitoring.js",
+
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].js"
@@ -84,9 +88,15 @@ module.exports = {
             filename: "index.html",
             inject: false
         }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            template: "./src/video_monitoring.html",
+            filename: "video_monitoring.html",
+            inject: false
+        }),
         new CopyWebpackPlugin([
             { from: './src/img', to: 'img' },
             { from: './src/data', to: 'data' }
         ])
     ]
-};
+}
