@@ -15,7 +15,7 @@ export function mouseDown(eventImage, e) {
     gesture = {
         startX: e.x,
         startY: e.y,
-        startLength: 0,
+        startLength: 1,
         startAngle: 0,
         prevX: parseInt(e.target.style.backgroundPositionX),
         prevY: parseInt(e.target.style.backgroundPositionY),

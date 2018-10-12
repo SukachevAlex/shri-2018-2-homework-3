@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "webpack --mode development",
-        "start": "webpack-dev-server --mode development --open",
+        "start": "webpack-dev-server --mode development --open --hot --inline --watch",
         "build": "webpack --mode production",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint ./src/**/*.js --quiet",

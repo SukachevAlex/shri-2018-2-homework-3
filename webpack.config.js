@@ -7,9 +7,8 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
-        main: "./src/index.js",
-        video: "./src/monitoring.js",
-
+        main: path.resolve(__dirname, "./src/index.js"),
+        video: path.resolve(__dirname, "./src/monitoring.js"),
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -83,13 +82,11 @@ module.exports = {
             filename: "style.css"
         }),
         new HtmlWebpackPlugin({
-            inject: false,
             template: "./src/index.html",
             filename: "index.html",
             inject: false
         }),
         new HtmlWebpackPlugin({
-            inject: false,
             template: "./src/video_monitoring.html",
             filename: "video_monitoring.html",
             inject: false
