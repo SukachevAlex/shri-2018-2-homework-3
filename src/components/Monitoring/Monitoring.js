@@ -5,6 +5,7 @@ export function monitoring() {
     cameraUrl.forEach((element, index, array) => {
         let container = document.createElement('div');
         container.className = 'camera-inner';
+        container.addEventListener('click', openCamera);
 
         let video = document.createElement('video');
         video.className = `camera camera-${index + 1} camera-active`;
@@ -20,7 +21,7 @@ export function monitoring() {
 
 function initVideo(video, url) {
     if (Hls.isSupported()) {
-        var hls = new Hls();
+        let hls = new Hls();
         hls.loadSource(url);
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED, function() {
@@ -41,4 +42,8 @@ function getCameraUrl() {
         'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fdog%2Fmaster.m3u8',
         'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fhall%2Fmaster.m3u8'
     ];
+}
+
+function openCamera(e) {
+    this.classList.toggle('camera-inner_opened');
 }
