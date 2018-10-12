@@ -1,6 +1,7 @@
-import { monitoring } from './components/Monitoring/Monitoring';
+import Canvas from './components/Canvas/Canvas';
 import './style.sass';
 
+const cameraList = document.querySelector('.camera__list');
 (function() {
-    monitoring();
+    cameraList.appendChild(Canvas);
 })();

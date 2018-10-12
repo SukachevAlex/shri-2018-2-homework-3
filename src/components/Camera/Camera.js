@@ -1,23 +1,19 @@
-export function monitoring() {
-    const cameraList = document.querySelector('.camera__list');
+const Camera = [];
+
+(function() {
     const cameraUrl = getCameraUrl();
 
     cameraUrl.forEach((element, index, array) => {
-        let container = document.createElement('div');
-        container.className = 'camera-inner';
-        container.addEventListener('click', openCamera);
+        let camera = document.createElement('video');
+        camera.className = `camera camera-${index + 1} camera-active`;
+        camera.autoplay = true;
+        camera.controls = false;
+        camera.muted = true;
 
-        let video = document.createElement('video');
-        video.className = `camera camera-${index + 1} camera-active`;
-        video.autoplay = true;
-        video.controls = false;
-        video.muted = true;
-
-        initVideo(video, element);
-        container.appendChild(video);
-        cameraList.appendChild(container);
+        initVideo(camera, element);
+        Camera.push(camera);
     });
-}
+})();
 
 function initVideo(video, url) {
     if (Hls.isSupported()) {
@@ -44,6 +40,4 @@ function getCameraUrl() {
     ];
 }
 
-function openCamera(e) {
-    this.classList.toggle('camera-inner_opened');
-}
+export default Camera;
