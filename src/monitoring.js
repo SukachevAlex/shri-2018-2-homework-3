@@ -3,5 +3,7 @@ import './style.sass';
 
 const cameraList = document.querySelector('.camera__list');
 (function() {
-    cameraList.appendChild(Canvas);
+    for (let i = 0; i < Canvas.length; i++) {
+        cameraList.appendChild(Canvas[i]);
+    }
 })();

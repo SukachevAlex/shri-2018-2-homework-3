@@ -1,0 +1,31 @@
+.camera__list
+    width: 100%
+    height: 100%
+    margin-top: 32px
+    position: relative
+    overflow: hidden
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-auto-rows: 1fr
+
+.camera
+    display: block
+    cursor: pointer
+    width: 100%
+    transition: all 1s ease
+
+.camera_open
+    z-index: 5
+
+    // I'am bad bad person
+.camera-1.camera_open
+    transform: scale(2) translate(25%, 25%)
+
+.camera-2.camera_open
+    transform: scale(2) translate(-25%, 25%)
+
+.camera-3.camera_open
+    transform: scale(2) translate(25%, -25%)
+
+.camera-4.camera_open
+    transform: scale(2) translate(-25%, -25%)

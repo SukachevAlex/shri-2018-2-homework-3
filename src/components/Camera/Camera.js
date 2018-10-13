@@ -5,7 +5,7 @@ const Camera = [];
 
     cameraUrl.forEach((element, index, array) => {
         let camera = document.createElement('video');
-        camera.className = `camera camera-${index + 1} camera-active`;
+        camera.className = `camera camera-${index + 1}`;
         camera.autoplay = true;
         camera.controls = false;
         camera.muted = true;
@@ -40,15 +40,4 @@ function getCameraUrl() {
     ];
 }
 
-function getCameraPos(columns, rows, width, height) {
-    let position = [];
-    for (let i = 0; i < columns; i++) {
-        for (let j = 0; j < rows; j++) {
-            position.push([j * width, i * height, width, height]);
-        }
-    }
-
-    return position;
-}
-
-export { Camera, getCameraPos };
+export { Camera };
