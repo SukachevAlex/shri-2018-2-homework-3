@@ -12,7 +12,8 @@
     display: block
     cursor: pointer
     width: 100%
-    transition: all 1s ease
+    transition: all 0.5s ease
+    z-index: 1
 
 .camera_open
     z-index: 5
@@ -29,3 +30,45 @@
 
 .camera-4.camera_open
     transform: scale(2) translate(-25%, -25%)
+
+.camera__controlls
+    padding: 0 20px
+    display: none
+    opacity: 0
+    background-color: #fafafa
+    border-radius: 0 0 20px 20px 
+    justify-content: space-between
+    align-items: center
+    padding-top: 10px
+
+.camera__controlls_visible
+    display: flex
+    animation: slideInDown .5s ease  forwards
+
+.range-controll-inner
+    width: 100%
+
+.range-controll
+    width: 80%
+    user-select: none
+
+.range-controll_contrast 
+    margin-right: 10px
+
+.range-controll_brightness
+    margin-left: 10px
+
+.range-controll-inner_left
+    text-align: left 
+    
+.range-controll-inner_right
+    text-align: right
+
+.contrast-controll-inner, .brightness-controll-inner
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 35%
+    font-weight: normal
+    @include font-size-fluid(12, 18)
+    @include line-height-fluid(14, 21)

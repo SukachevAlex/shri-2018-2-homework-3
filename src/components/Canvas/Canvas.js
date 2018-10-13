@@ -1,6 +1,7 @@
 import { Camera } from '../Camera/Camera';
 
 const Canvas = [];
+const controlls = document.querySelector('.camera__controlls');
 
 (function() {
     for (let i = 0; i < Camera.length; i++) {
@@ -16,6 +17,7 @@ const Canvas = [];
 
         canvas.addEventListener('click', (e) => {
             canvas.classList.toggle('camera_open');
+            controlls.classList.toggle('camera__controlls_visible');
         });
 
         const animate = () => {

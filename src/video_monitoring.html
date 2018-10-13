@@ -34,6 +34,24 @@
             <div class="main-area">
                 <h1 class="title main__title">Видеонаблюдение</h1>
                 <div class="camera__list"></div>
+                <div class="camera__controlls">
+                    <div class="contrast-controll-inner">
+                        <span class="contrast-controll__name">Контраст</span>
+                        <div class="range-controll-inner range-controll-inner_left">
+                            <input class="range-controll range-controll_contrast input__controll_range" id="input_contrast" type="range" min="0" max="200" value="100" step="1" oninput="output_contrast.value = input_contrast.value">
+                            <output id="output_contrast">100</output>%
+                        </div>
+                    </div>
+                    <button class="btn camera__btn">Все камеры</button>
+                    <div class="brightness-controll-inner">
+                        <span class="brigtness-controll__name">Яркость</span>
+                        <div class="range-controll-inner range-controll-inner_right">
+                            <output id="output_brightness">100</output>%
+                            <input class="range-controll range-controll_brightness input__controll_range" id="input_brightness" type="range" min="0" max="200" value="100" step="1" oninput="output_brightness.value = input_brightness.value">
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </main>
         <footer class="footer page__footer">
