@@ -1,4 +1,4 @@
-import Camera from '../Camera/Camera';
+import { Camera, getCameraPos } from '../Camera/Camera';
 
 const Canvas = document.createElement('canvas');
 const ctx = Canvas.getContext('2d');
@@ -10,18 +10,19 @@ ctx.filter = `
     contrast(1)
 `;
 
+let columns = 2;
+let rows = 2;
+let width = Canvas.width / columns;
+let height = Canvas.height / rows;
+
+let cameraPos = getCameraPos(columns, rows, width, height);
+
 const animate = () => {
 
-    let columns = 2;
-    let rows = 2;
-    let width = Canvas.width / columns;
-    let height = Canvas.height / rows;
-
-    for (let i = 0, c = 0; i < columns; i++) {
-        for (let j = 0; j < rows; j++, c++) {
-            ctx.drawImage(Camera[c], j * width, i * height, width, height);
-        }
+    for (let i = 0; i < Camera.length; i++) {
+        ctx.drawImage(Camera[i], cameraPos[i][0], cameraPos[i][1], cameraPos[i][2], cameraPos[i][3]);
     }
+
     window.requestAnimationFrame(animate);
 }
 
