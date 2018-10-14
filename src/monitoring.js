@@ -6,6 +6,8 @@ const cameraBackBtn = document.querySelector('.camera__btn');
 const cameraControlls = document.querySelector('.camera__controlls');
 const brightnessControll = document.querySelector('.range-controll_brightness');
 const contrastControll = document.querySelector('.range-controll_contrast');
+const volumeControll = document.querySelector('.volume__controll');
+
 (function() {
     for (let i = 0; i < Canvas.length; i++) {
         cameraList.appendChild(Canvas[i]);
@@ -13,6 +15,7 @@ const contrastControll = document.querySelector('.range-controll_contrast');
 
     cameraBackBtn.addEventListener('click', function() {
         const camera = document.querySelector('.camera_open');
+        camera.classList.add('camera_muted');
         camera.classList.remove('camera_open');
         cameraControlls.classList.remove('camera__controlls_visible');
     });
@@ -21,16 +24,18 @@ const contrastControll = document.querySelector('.range-controll_contrast');
         const canvas = document.querySelector('.camera_open');
         const ctx = canvas.getContext('2d');
         ctx.filter = `brightness(${this.value / 100})`;
-
-        console.log(this.value);
     });
 
     brightnessControll.addEventListener('input', function() {
         const canvas = document.querySelector('.camera_open');
         const ctx = canvas.getContext('2d');
         ctx.filter = `contrast(${this.value / 100})`;
-
-        console.log(this.value);
     });
+
+    volumeControll.addEventListener('click', function() {
+        this.classList.toggle('volume__controll_inactive');
+        const canvas = document.querySelector('.camera_open');
+        canvas.classList.toggle('camera_muted');
+    })
 
 })();

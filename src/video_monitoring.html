@@ -35,6 +35,7 @@
                 <h1 class="title main__title">Видеонаблюдение</h1>
                 <div class="camera__list"></div>
                 <div class="camera__controlls">
+                    <button class="btn camera__btn">Все камеры</button>
                     <div class="contrast-controll-inner">
                         <span class="contrast-controll__name">Контраст</span>
                         <div class="range-controll-inner range-controll-inner_left">
@@ -42,7 +43,6 @@
                             <output id="output_contrast">100</output>%
                         </div>
                     </div>
-                    <button class="btn camera__btn">Все камеры</button>
                     <div class="brightness-controll-inner">
                         <span class="brigtness-controll__name">Яркость</span>
                         <div class="range-controll-inner range-controll-inner_right">
@@ -50,7 +50,7 @@
                             <input class="range-controll range-controll_brightness input__controll_range" id="input_brightness" type="range" min="0" max="200" value="100" step="1" oninput="output_brightness.value = input_brightness.value">
                         </div>
                     </div>
-
+                    <div class="volume__controll volume__controll_inactive"></div>
                 </div>
             </div>
         </main>
