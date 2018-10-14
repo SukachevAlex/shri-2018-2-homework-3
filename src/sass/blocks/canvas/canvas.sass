@@ -90,7 +90,23 @@
         width: 2px 
         height: 100%
         background-color: #333
+        outline: 1px solid #fafafa
         position: absolute
         top: 0
         left: 50%
         transform: rotate(-45deg)
+
+.volume-oscilloscope
+    display: none
+    position: absolute
+    top: 5%
+    left: 5%
+    z-index: 10
+
+.volume-oscilloscope
+    display: none
+    opacity: 0
+
+.volume-oscilloscope_visible
+    display: block
+    animation: slideInDown 1s ease  forwards

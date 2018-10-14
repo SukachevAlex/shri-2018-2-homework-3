@@ -8,7 +8,7 @@ import { generateEvents } from './components/Event/Event';
     if (supportsTemplate) {
         events.forEach(el => generateEvents(el));
     } else {
-        console.log('sad');
+        console.log('error');
     }
 })();
 

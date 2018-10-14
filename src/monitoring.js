@@ -1,9 +1,10 @@
-import Canvas from './components/Canvas/Canvas';
+import { Canvas, toggleCamera, changeContrast, changeBrightness, changeVolume } from './components/VideoCanvas/VideoCanvas';
+import { initAudioAnalyser, initAudioVizualizer } from './components/AudioAnalyser/AudioAnalyser';
 import './style.sass';
 
 const cameraList = document.querySelector('.camera__list');
 const cameraBackBtn = document.querySelector('.camera__btn');
-const cameraControlls = document.querySelector('.camera__controlls');
+
 const brightnessControll = document.querySelector('.range-controll_brightness');
 const contrastControll = document.querySelector('.range-controll_contrast');
 const volumeControll = document.querySelector('.volume__controll');
@@ -13,29 +14,11 @@ const volumeControll = document.querySelector('.volume__controll');
         cameraList.appendChild(Canvas[i]);
     }
 
-    cameraBackBtn.addEventListener('click', function() {
-        const camera = document.querySelector('.camera_open');
-        camera.classList.add('camera_muted');
-        camera.classList.remove('camera_open');
-        cameraControlls.classList.remove('camera__controlls_visible');
-    });
+    cameraBackBtn.addEventListener('click', toggleCamera);
+    contrastControll.addEventListener('input', changeContrast);
+    brightnessControll.addEventListener('input', changeBrightness);
+    volumeControll.addEventListener('click', changeVolume);
 
-    contrastControll.addEventListener('input', function() {
-        const canvas = document.querySelector('.camera_open');
-        const ctx = canvas.getContext('2d');
-        ctx.filter = `brightness(${this.value / 100})`;
-    });
-
-    brightnessControll.addEventListener('input', function() {
-        const canvas = document.querySelector('.camera_open');
-        const ctx = canvas.getContext('2d');
-        ctx.filter = `contrast(${this.value / 100})`;
-    });
-
-    volumeControll.addEventListener('click', function() {
-        this.classList.toggle('volume__controll_inactive');
-        const canvas = document.querySelector('.camera_open');
-        canvas.classList.toggle('camera_muted');
-    })
-
+    initAudioAnalyser();
+    initAudioVizualizer();
 })();
