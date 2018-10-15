@@ -37,26 +37,50 @@
     opacity: 0
     background-color: #fafafa
     border-radius: 0 0 20px 20px 
-    justify-content: space-between
     align-items: center
     padding-top: 10px
+    grid-template-columns: 22.5% 35% 35% 7.5%
+    grid-gap: 5px
+
+    @media screen and (max-width: 725px)
+        grid-template-columns: 45% 45% 10%
+        grid-template-areas: "brightness contrast volume" "button button button"
 
 .camera__controlls_visible
-    display: flex
+    display: grid
     animation: slideInDown .5s ease  forwards
 
+.camera__btn
+    @include font-size-fluid(14, 18)
+    @include line-height-fluid(16, 21)
+    @media screen and (max-width: 725px)
+        grid-area: button
+
+
 .range-controll-inner
-    width: 100%
+    width: 90%
+    margin-top: 5px
+    @media screen and (max-width: 725px)
+        width: 100%
 
 .range-controll
-    width: 75%
+    width: 70%
     user-select: none
+
+    @media screen and (max-width: 840px)
+        width: 60%
 
 .range-controll_contrast 
     margin-right: 10px
 
+    @media screen and (max-width: 725px)
+        grid-area: contrast
+
 .range-controll_brightness
     margin-left: 10px
+
+    @media screen and (max-width: 725px)
+        grid-area: brightness
 
 .range-controll-inner_left
     text-align: left 
@@ -68,10 +92,11 @@
     display: flex
     flex-direction: column
     align-items: center
-    width: 35%
+    width: 100%
     font-weight: normal
     @include font-size-fluid(12, 18)
     @include line-height-fluid(14, 21)
+
 
 .volume__controll
     width: 38px
@@ -82,6 +107,16 @@
     background-position: center
     cursor: pointer
     position: relative
+
+    @media screen and (max-width: 1024px)
+        width: 28px
+        height: 28px
+    @media screen and (max-width: 725px)
+        grid-area: volume
+    @media screen and (max-width: 1024px)
+        width: 22px
+        height: 22px
+
 
 .volume__controll_inactive
     &::after
