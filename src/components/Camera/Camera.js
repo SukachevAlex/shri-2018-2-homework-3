@@ -1,6 +1,6 @@
 const Camera = [];
 
-(function() {
+(function () {
     const cameraUrl = getCameraUrl();
 
     cameraUrl.forEach((element, index, array) => {
@@ -20,12 +20,12 @@ function initVideo(video, url) {
         let hls = new Hls();
         hls.loadSource(url);
         hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play();
         });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = url;
-        video.addEventListener('loadedmetadata', function() {
+        video.addEventListener('loadedmetadata', function () {
             video.play();
         });
     }
@@ -40,4 +40,4 @@ function getCameraUrl() {
     ];
 }
 
-export { Camera };
+export {Camera};

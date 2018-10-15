@@ -1,4 +1,4 @@
-import { Camera } from '../Camera/Camera';
+import {Camera} from '../Camera/Camera';
 
 const graph = document.querySelector('.volume-oscilloscope');
 const fftConstant = 2048;
@@ -58,7 +58,7 @@ function draw() {
 
     ctx.beginPath();
 
-    let sliceWidth = canvas.width * 1.0 / bufferLength;
+    let sliceWidth = Number(canvas.width) / bufferLength;
     let x = 0;
 
     for (let i = 0; i < bufferLength; i++) {
