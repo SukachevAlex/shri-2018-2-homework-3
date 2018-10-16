@@ -1,12 +1,13 @@
-import {Camera} from '../Camera/Camera';
-import {connectStream} from '../AudioAnalyser/AudioAnalyser';
+import { Camera } from '../Camera/Camera';
+import { connectStream } from '../AudioAnalyser/AudioAnalyser';
 
 const Canvas = [];
 const controlls = document.querySelector('.camera__controlls');
 const volumeControll = document.querySelector('.volume__controll');
 const oscilloscope = document.querySelector('.volume-oscilloscope');
+const volumeBar = document.querySelector('.volume-bar');
 
-(function () {
+(function() {
     for (let i = 0; i < Camera.length; i++) {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
@@ -18,17 +19,18 @@ const oscilloscope = document.querySelector('.volume-oscilloscope');
             contrast(1)
         `;
 
-        canvas.addEventListener('click', function () {
+        canvas.addEventListener('click', function() {
             canvas.classList.toggle('camera_open');
             controlls.classList.toggle('camera__controlls_visible');
             canvas.classList.add('camera_muted');
             volumeControll.classList.add('volume__controll_inactive');
+            oscilloscope.classList.toggle('volume-oscilloscope_visible');
+            volumeBar.classList.toggle('volume-bar_visible');
 
             if (this.classList.contains('camera_open')) {
                 let num = this.className.replace(/\D/g, '');
                 connectStream(Camera[num - 1], num);
             }
-            oscilloscope.classList.toggle('volume-oscilloscope_visible');
         });
 
         const animate = () => {
@@ -69,4 +71,4 @@ function changeVolume() {
     canvas.classList.toggle('camera_muted');
 }
 
-export {Canvas, toggleCamera, changeContrast, changeBrightness, changeVolume};
+export { Canvas, toggleCamera, changeContrast, changeBrightness, changeVolume };
