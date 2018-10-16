@@ -1062,14 +1062,19 @@ body {
   position: absolute;
   top: 5%;
   left: 5%;
-  z-index: 10; }
-
-.volume-oscilloscope {
-  display: none;
+  z-index: 10;
   opacity: 0; }
 
-.volume-oscilloscope_visible {
-  display: block;
+.volume-bar {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  z-index: 10;
+  opacity: 0; }
+
+.volume-oscilloscope_visible, .volume-bar_visible {
+  display: block !important;
   -webkit-animation: slideInDown 1s ease  forwards;
           animation: slideInDown 1s ease  forwards; }
 
